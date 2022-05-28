@@ -4,7 +4,7 @@
   "description": "",
   "main": "build/main.js",
   "scripts": {
-    "build": "npx tsc --build --clean && npx tsc",
+    "build": "npx tsc --build --clean && npx tsc && rollup -c",
     "bundle": "rollup -c",
     "electron": "electron ."
   },
