@@ -1,0 +1,8 @@
+body { 
+    background-color: #282c34;
+}
+
+.cm-scroller {
+    overflow: auto; 
+    min-height: 2280px;
+}
