@@ -2,7 +2,7 @@ import { EditorState } from '@codemirror/state';
 
 import { EditorView } from '@codemirror/view';
 
-import { markdown } from '@codemirror/lang-markdown';
+import { markdown, markdownLanguage } from '@codemirror/lang-markdown';
 
 import { keymap, highlightSpecialChars, drawSelection, highlightActiveLine, dropCursor, rectangularSelection, crosshairCursor,lineNumbers, highlightActiveLineGutter } from '@codemirror/view'
 
@@ -15,6 +15,8 @@ import { searchKeymap, highlightSelectionMatches } from '@codemirror/search'
 import { autocompletion, completionKeymap, closeBrackets, closeBracketsKeymap } from '@codemirror/autocomplete'
 
 import { tags } from '@lezer/highlight';
+
+import { languages } from '@codemirror/language-data';
 
 //modified basic-dark theme
 //credit: https://github.com/craftzdog/cm6-themes/tree/main/packages/basic-dark
@@ -228,7 +230,10 @@ const editor = new EditorView({
   state: EditorState.create({
     doc: '',
     extensions: [ 
-        markdown(),
+        markdown({
+          base: markdownLanguage,
+          codeLanguages: languages
+        }),
         basicDarkTheme,
         lineNumbers(),
         highlightActiveLineGutter(),
