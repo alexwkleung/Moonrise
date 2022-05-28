@@ -20,13 +20,11 @@
   "homepage": "https://github.com/alexwkleung/CM6-Markdown-Editor-Demo#readme",
   "dependencies": {
     "@codemirror/autocomplete": "^0.20.2",
-    "@codemirror/basic-setup": "^0.20.0",
     "@codemirror/commands": "^0.20.0",
     "@codemirror/lang-markdown": "^0.20.1",
     "@codemirror/language": "^0.20.2",
     "@codemirror/search": "^0.20.1",
     "@codemirror/state": "^0.20.0",
-    "@codemirror/theme-one-dark": "^0.20.0",
     "@codemirror/view": "^0.20.6",
     "@lezer/highlight": "^0.16.0",
     "@rollup/plugin-commonjs": "^22.0.0",

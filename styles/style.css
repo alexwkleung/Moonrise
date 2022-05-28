@@ -1,8 +1,16 @@
 body { 
-    background-color: #282c34;
+    background-color: #2E3235;
 }
 
 .cm-scroller {
     overflow: auto; 
     min-height: 2280px;
+}
+
+#preview {
+    background-color: #ffff;
+    border: 0;
+    height: 2880px;
+    width: 50%;
+    position: relative;
 }
