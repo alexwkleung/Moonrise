@@ -254,8 +254,35 @@ const editor = new EditorView({
           ...historyKeymap,
           ...foldKeymap,
           ...completionKeymap,
-        ])
+        ]),
+        //listen for changes when EditorView gets updated. registers function for iframe preview delay
+        EditorView.updateListener.of(function(e) {
+        clearTimeout(delay);
+        delay = setTimeout(updatePreview, 200);
+      })
     ]
   }),
   parent: document.getElementById('editor')!
 })
+
+//preview delay variable
+let delay: any;
+
+//iframe preview
+function updatePreview() {
+  const previewFrame = document.getElementById('preview') as HTMLIFrameElement;
+  let preview =  previewFrame.contentDocument ||  previewFrame.contentWindow!.document;
+  preview.open();
+  preview.write(editor.state.doc.toString());
+  preview.close();
+
+  //link shared css to new element 'link'
+  let cssLink = document.createElement('link') 
+  cssLink.href = "styles/style.css"; 
+  cssLink.rel = "stylesheet"; 
+  cssLink.type = "text/css"; 
+
+  //append shared css element 'link' to iframe preview
+  preview.body.appendChild(cssLink);
+}
+setTimeout(updatePreview, 200);
