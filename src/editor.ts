@@ -18,6 +18,10 @@ import { tags } from '@lezer/highlight';
 
 import { languages } from '@codemirror/language-data';
 
+import DOMPurify from 'dompurify';
+
+import { marked } from 'marked';
+
 //modified basic-dark theme
 //credit: https://github.com/craftzdog/cm6-themes/tree/main/packages/basic-dark
 
@@ -277,8 +281,13 @@ let delay: any;
 function updatePreview() {
   const previewFrame = document.getElementById('preview') as HTMLIFrameElement;
   let preview =  previewFrame.contentDocument ||  previewFrame.contentWindow!.document;
+
+  //sanitize html + markdown parsing
+  let purifyParse = DOMPurify.sanitize(marked.parse(editor.state.doc.toString()));
+
+  //write sanitized + parsed output to iframe preview
   preview.open();
-  preview.write(editor.state.doc.toString());
+  preview.write(purifyParse);
   preview.close();
 
   //link shared css to new element 'link'
