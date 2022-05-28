@@ -226,8 +226,8 @@ const basicDarkHighlightStyle = HighlightStyle.define([
 //editor
 const editor = new EditorView({
   state: EditorState.create({
-    extensions: [
-        //basicSetup, 
+    doc: '',
+    extensions: [ 
         markdown(),
         basicDarkTheme,
         lineNumbers(),
