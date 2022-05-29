@@ -8,7 +8,7 @@ import { keymap, highlightSpecialChars, drawSelection, highlightActiveLine, drop
 
 import { syntaxHighlighting, HighlightStyle, indentOnInput, bracketMatching, foldGutter, foldKeymap } from '@codemirror/language'
 
-import { defaultKeymap, history, historyKeymap } from '@codemirror/commands'
+import { defaultKeymap, history, historyKeymap, indentWithTab } from '@codemirror/commands'
 
 import { searchKeymap, highlightSelectionMatches } from '@codemirror/search'
 
@@ -266,6 +266,7 @@ const editor = new EditorView({
           ...historyKeymap,
           ...foldKeymap,
           ...completionKeymap,
+          ...[indentWithTab]
         ]),
         //listen for changes when EditorView gets updated. registers function for iframe preview delay
         EditorView.updateListener.of(function(e) {
