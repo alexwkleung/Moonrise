@@ -22,10 +22,12 @@ import DOMPurify from 'dompurify';
 
 import { marked } from 'marked';
 
-//modified basic-dark theme
+import hljs from 'highlight.js';
+
+//basic-dark theme (modified)
 //credit: https://github.com/craftzdog/cm6-themes/tree/main/packages/basic-dark
 
-//theme colours
+//theme colours - base
 const base00 = '#2E3235',
   base01 = '#DDDDDD',
   base02 = '#5e676e',
@@ -43,6 +45,7 @@ const base00 = '#2E3235',
   base0E = '#cc99cc',
   base0F = '#6987AF'
 
+//theme colours - invalid
 const invalid = base09,
   darkBackground = '#292d30',
   highlightBackground = base02 + '30',
@@ -51,7 +54,7 @@ const invalid = base09,
   selection = '#202325',
   cursor = base01
 
-//theme styles
+//editor theme styles
 const basicDarkTheme = EditorView.theme(
   {
     '&': {
@@ -132,7 +135,7 @@ const basicDarkTheme = EditorView.theme(
   { dark: true }
 )
 
-//highlighting
+//editor highlighting
 const basicDarkHighlightStyle = HighlightStyle.define([
   { tag: tags.keyword, color: base0A },
   {
@@ -282,6 +285,21 @@ function updatePreview() {
   const previewFrame = document.getElementById('preview') as HTMLIFrameElement;
   let preview =  previewFrame.contentDocument ||  previewFrame.contentWindow!.document;
 
+  //set marked options
+  marked.setOptions({
+    //set renderer to new object renderer function
+    renderer: new marked.Renderer(),
+    //utilize highlight.js
+    highlight: function(code, lang) {
+      const language = hljs.getLanguage(lang) ? lang : 'plaintext';
+      return hljs.highlight(code, { language }).value;
+    },
+    langPrefix: 'hljs language-',
+    gfm: true,
+    breaks: true,
+    headerIds: true
+  })
+
   //sanitize html + markdown parsing
   let purifyParse = DOMPurify.sanitize(marked.parse(editor.state.doc.toString()));
 
@@ -290,13 +308,13 @@ function updatePreview() {
   preview.write(purifyParse);
   preview.close();
 
-  //link shared css to new element 'link'
-  let cssLink = document.createElement('link') 
-  cssLink.href = "styles/style.css"; 
-  cssLink.rel = "stylesheet"; 
-  cssLink.type = "text/css"; 
+  //share the style.css to the created element 'link'
+  let cssShared = document.createElement('link') 
+  cssShared.href = "styles/style.css"; 
+  cssShared.rel = "stylesheet"; 
+  cssShared.type = "text/css"; 
 
-  //append shared css element 'link' to iframe preview
-  preview.body.appendChild(cssLink);
+  //append the shared css of element 'link' to iframe preview
+  preview.body.appendChild(cssShared);
 }
 setTimeout(updatePreview, 200);
