@@ -1,4 +1,6 @@
-import { app, BrowserWindow } from 'electron';
+import { app, BrowserWindow, Menu, MenuItemConstructorOptions } from 'electron';
+
+import electronLocalshortcut from 'electron-localshortcut';
 
 const createWindow = () => {
     let mainWindow = new BrowserWindow({
@@ -8,6 +10,69 @@ const createWindow = () => {
     })
     mainWindow.loadFile('index.html');
 }
+
+const mac = process.platform === 'darwin'
+
+const menu = Menu.buildFromTemplate(
+  [
+    //app menu
+    ...(mac ? [{
+      label: app.name,
+      submenu: [
+        { role: 'about' },
+        { type: 'separator' },
+        { role: 'hide' },
+        { role: 'hideothers' },
+        { role: 'unhide' },
+        { type: 'separator' },
+        { role: 'quit' }
+      ]
+    }] : []) as MenuItemConstructorOptions[],
+    //file menu
+    {
+      label: 'File',
+      submenu: [
+        mac ? { role: 'close' } : { role: 'quit' }
+      ] as MenuItemConstructorOptions[]
+    },
+    //edit menu
+    {
+      label: 'Edit',
+      submenu: [
+        { role: 'undo' },
+        { role: 'redo' },
+        { type: 'separator' },
+        { role: 'cut' },
+        { role: 'copy' },
+        { role: 'paste' },
+        ...(mac ? [
+          { role: 'pasteAndMatchStyle' },
+          { role: 'delete' },
+          { role: 'selectAll' },
+          { type: 'separator' },
+        ] : [
+          { role: 'delete' },
+          { type: 'separator' },
+          { role: 'selectAll' }
+        ]) as MenuItemConstructorOptions[]
+      ]
+    },
+    //view menu
+    {
+      label: 'View',
+      submenu: [
+          { 
+              role: 'toggleDevTools', 
+              accelerator: 'Command+Shift+D'
+          },
+          { label: 'Toggle Fullscreen', role: 'togglefullscreen', accelerator: 'Command+Shift+F' },
+      ]
+    }
+  ]
+);
+
+//set menu from template
+Menu.setApplicationMenu(menu)
 
 app.whenReady().then(() => {
     createWindow();
@@ -24,3 +89,9 @@ app.on('window-all-closed', () => {
         app.quit();
     }
 })
+
+app.on('browser-window-focus', function() {
+    electronLocalshortcut.register("CommandOrControl+R", () => {
+    console.log("Reload Disabled");
+   })
+});
