@@ -1,3 +1,5 @@
+/* default + preview styles */
+
 body { 
     background-color: #2E3235;
 }
@@ -10,7 +12,170 @@ body {
 #preview {
     background-color: transparent;
     border: 0;
-    height: 2880px;
+    height: 5000px;
     width: 50%;
     position: relative;
+}
+
+p {
+    color: #BDBDBD;
+    font-size: 17px;
+}
+
+a {
+	color: #5C6BC0;
+	text-decoration: none;
+}
+
+mark { 
+    background-color: #c7d22c;
+    color: #000000;
+}
+
+h1, h2, h3 {
+    color: #BDBDBD;
+    /* font-family: "IBM Plex Sans", sans-serif; */
+}
+
+ul {
+    /* font-family: "IBM Plex Sans", sans-serif; */
+    font-size: 17px;
+    -webkit-animation: fadein 1.3s;
+    -moz-animation: fadein 1.3s; 
+    animation: fadein 1.3s;
+    color: #BDBDBD;
+}
+
+ol {
+    /* font-family: "IBM Plex Sans", sans-serif; */
+    color: #BDBDBD;
+    font-size: 17px;
+}
+
+details, summary {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 17px;
+}
+
+code {
+    font-size: 17px;
+    /* background: #673AB7; */
+}
+
+blockquote  {
+    border-left: 3px solid #BDBDBD;
+    margin: 1.5em 10px;
+      padding: 0.5em 10px;
+    margin-left: 1.5em;
+}
+
+blockquote:before {
+    color: #BDBDBD;
+    font-size: 4em;
+    line-height: 0.1em;
+    margin-right: 0.25em;
+    vertical-align: -0.4em;
+}
+
+blockquote p {
+    display: inline;
+}
+
+table, th, td {
+    border: 1px solid;
+    border-collapse: collapse;
+    font-size: 17px;
+    color: #BDBDBD;
+    /* font-family: "IBM Plex Sans", sans-serif; */
+  }
+
+strong {
+    color: #E0E0E0;
+    font-size: 17.5px;
+}
+
+details summary {
+    cursor: pointer;
+    border-width: 1px;
+    width: auto;
+    height: auto;
+    border-style: solid;
+    border-color:rgb(71, 71, 71);
+    color: #BDBDBD;
+}
+
+details p { 
+    border-width: 1px;
+    width: auto;
+    height: auto;
+    margin: auto;
+    border-style: solid;
+    border-color:rgb(71, 71, 71);
+    color: #BDBDBD;
+}
+
+details summary > * {
+    display: inline;
+}
+
+/* highlight.js atom-one-dark */
+
+pre code.hljs {
+    display: block;
+    overflow-x: auto;
+    padding: 1em;
+}
+
+code.hljs { 
+    padding: 3px 5px;
+}
+
+.hljs { 
+    color:#abb2bf;
+    background: #282c34;
+}
+
+.hljs-comment, .hljs-quote { 
+    color:#5c6370; 
+    font-style: italic;
+}
+
+.hljs-doctag, .hljs-formula, .hljs-keyword { 
+    color:#c678dd;
+}
+
+.hljs-deletion,.hljs-name, .hljs-section, .hljs-selector-tag, .hljs-subst { 
+    color:#e06c75;
+}
+
+.hljs-literal { 
+    color:#56b6c2; 
+}
+
+.hljs-addition, .hljs-attribute, .hljs-meta .hljs-string, .hljs-regexp, .hljs-string { 
+    color:#98c379; 
+} 
+
+.hljs-attr, .hljs-number, .hljs-selector-attr, .hljs-selector-class, .hljs-selector-pseudo, .hljs-template-variable, .hljs-type, .hljs-variable { 
+    color:#d19a66;
+}
+
+.hljs-bullet, .hljs-link, .hljs-meta, .hljs-selector-id, .hljs-symbol, .hljs-title { 
+    color:#61aeee;
+}
+
+.hljs-built_in, .hljs-class .hljs-title, .hljs-title.class_ { 
+    color:#e6c07b;
+} 
+
+.hljs-emphasis { 
+    font-style: italic; 
+}
+
+.hljs-strong { 
+    font-weight: 700;
+}
+
+.hljs-link {
+    text-decoration: underline;
 }
