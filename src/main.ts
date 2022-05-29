@@ -1,7 +1,5 @@
 import { app, BrowserWindow, Menu, MenuItemConstructorOptions } from 'electron';
 
-import electronLocalshortcut from 'electron-localshortcut';
-
 const createWindow = () => {
     let mainWindow = new BrowserWindow({
         width: 800,
@@ -89,9 +87,3 @@ app.on('window-all-closed', () => {
         app.quit();
     }
 })
-
-app.on('browser-window-focus', function() {
-    electronLocalshortcut.register("CommandOrControl+R", () => {
-    console.log("Reload Disabled");
-   })
-});
