@@ -1,3 +1,7 @@
+@font-face {
+    font-family: 'Open Sans';
+    src: url('./fonts-main/OpenSans-VariableFont_wdth\,wght.ttf');
+}
 /* default + preview styles */
 
 body { 
@@ -21,11 +25,13 @@ body {
 p {
     color: #BDBDBD;
     font-size: 17px;
+    font-family: 'Open Sans', sans-serif;
 }
 
 a {
 	color: #5C6BC0;
 	text-decoration: none;
+    font-family: 'Open Sans', sans-serif;
 }
 
 span { 
@@ -43,6 +49,7 @@ pre {
 mark { 
     background-color: #c7d22c;
     color: #000000;
+    font-family: 'Open Sans', sans-serif;
 }
 
 img { 
@@ -53,22 +60,21 @@ img {
 
 h1, h2, h3 {
     color: #BDBDBD;
-    /* font-family: "IBM Plex Sans", sans-serif; */
+    font-family: 'Open Sans', sans-serif;
 }
 
 ul {
-    /* font-family: "IBM Plex Sans", sans-serif; */
+    font-family: 'Open Sans', sans-serif;
     font-size: 17px;
-    -webkit-animation: fadein 1.3s;
-    -moz-animation: fadein 1.3s; 
-    animation: fadein 1.3s;
     color: #BDBDBD;
+    font-family: 'Open Sans', sans-serif;
 }
 
 ol {
-    /* font-family: "IBM Plex Sans", sans-serif; */
+    font-family: 'Open Sans', sans-serif;
     color: #BDBDBD;
     font-size: 17px;
+    font-family: 'Open Sans', sans-serif;
 }
 
 details, summary {
@@ -84,8 +90,10 @@ code {
 blockquote  {
     border-left: 3px solid #BDBDBD;
     margin: 1.5em 10px;
-      padding: 0.5em 10px;
+    padding: 0.5em 10px;
     margin-left: 1.5em;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 17px;
 }
 
 blockquote:before {
@@ -98,6 +106,8 @@ blockquote:before {
 
 blockquote p {
     display: inline;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 17px;
 }
 
 table, th, td {
@@ -105,12 +115,13 @@ table, th, td {
     border-collapse: collapse;
     font-size: 17px;
     color: #BDBDBD;
-    /* font-family: "IBM Plex Sans", sans-serif; */
+    font-family: 'Open Sans', sans-serif;
   }
 
 strong {
     color: #E0E0E0;
     font-size: 17.5px;
+    font-family: 'Open Sans', sans-serif;
 }
 
 details summary {
