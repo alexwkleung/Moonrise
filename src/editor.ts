@@ -20,9 +20,11 @@ import { languages } from '@codemirror/language-data';
 
 import DOMPurify from 'dompurify';
 
-import { marked } from 'marked';
+import { marked, Renderer } from 'marked';
 
 import hljs from 'highlight.js';
+
+import katex from 'katex';
 
 //basic-dark theme (modified)
 //credit: https://github.com/craftzdog/cm6-themes/tree/main/packages/basic-dark
@@ -286,12 +288,47 @@ function updatePreview() {
   const previewFrame = document.getElementById('preview') as HTMLIFrameElement;
   let preview =  previewFrame.contentDocument ||  previewFrame.contentWindow!.document;
 
+  //katex rendering 
+  //credit: https://www.jingxuanqu.com/demo/marked/marked-with-katex.html
+
+  const renderer = new marked.Renderer();
+
+  function mathsExpression(expr: string) {
+    if (expr.match(/^\$\$[\s\S]*\$\$$/)) {
+      expr = expr.substr(2, expr.length - 4);
+      return katex.renderToString(expr, { displayMode: true });
+    } else if (expr.match(/^\$[\s\S]*\$$/)) {
+      expr = expr.substr(1, expr.length - 2);
+      return katex.renderToString(expr, { displayMode: true });
+    }
+  }
+  
+  const unchanged = new marked.Renderer()
+  
+  renderer.code = function(code: string, lang: string | undefined, escaped: boolean) {
+    if (!lang) {
+      const math = mathsExpression(code);
+      if (math) {
+        return math;
+      }
+    }
+    return unchanged.code(code, lang, escaped);
+  };
+  
+  renderer.codespan = function(text: string) {
+    const math = mathsExpression(text);
+    if (math) {
+      return math;
+    }
+    return unchanged.codespan(text);
+  };
+
   //set marked options
   marked.setOptions({
     //set renderer to new object renderer function
-    renderer: new marked.Renderer(),
+    renderer: renderer,
     //utilize highlight.js
-    highlight: function(code, lang) {
+    highlight: function(code: string, lang: string) {
       const language = hljs.getLanguage(lang) ? lang : 'plaintext';
       return hljs.highlight(code, { language }).value;
     },
@@ -306,6 +343,7 @@ function updatePreview() {
 
   //write sanitized + parsed output to iframe preview
   preview.open();
+  preview.write('<!DOCTYPE html>')
   preview.write(purifyParse);
   preview.close();
 
@@ -316,6 +354,13 @@ function updatePreview() {
   cssShared.type = "text/css"; 
 
   //append the shared css of element 'link' to iframe preview
-  preview.body.appendChild(cssShared);
+  preview.head.appendChild(cssShared);
+
+  let cssKatex = document.createElement('link');
+  cssKatex.href = "styles/katex.min.css";
+  cssKatex.rel = "stylesheet";
+  cssKatex.type = "text/css";
+
+  preview.head.appendChild(cssKatex);
 }
 setTimeout(updatePreview, 200);

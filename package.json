@@ -30,9 +30,11 @@
     "@lezer/highlight": "^0.16.0",
     "@rollup/plugin-commonjs": "^22.0.0",
     "@rollup/plugin-node-resolve": "^13.3.0",
+    "@types/katex": "^0.14.0",
     "@types/node": "^17.0.35",
     "dompurify": "^2.3.8",
     "highlight.js": "^11.5.1",
+    "katex": "^0.15.6",
     "marked": "^4.0.16",
     "rollup": "^2.75.0",
     "typescript": "^4.7.2"

@@ -27,6 +27,18 @@ a {
 	text-decoration: none;
 }
 
+span { 
+    color: #BDBDBD;
+}
+
+pre code {
+    color: #BDBDBD;
+}
+
+pre { 
+    color: #BDBDBD;
+}
+
 mark { 
     background-color: #c7d22c;
     color: #000000;
