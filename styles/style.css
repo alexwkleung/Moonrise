@@ -2,6 +2,17 @@
     font-family: 'Open Sans';
     src: url('./fonts-main/OpenSans-VariableFont_wdth\,wght.ttf');
 }
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url('./fonts-main/SourceSansPro-Regular.ttf')
+}
+
+@font-face {
+     font-family: 'IBM Plex Sans';
+     src: url('./fonts-main/IBMPlexSans-Medium.ttf')
+}
+
 /* default + preview styles */
 
 body { 
@@ -22,16 +33,21 @@ body {
     display: block;
 }
 
+button { 
+    background-color: transparent;
+    color: #BDBDBD;
+}
+
 p {
     color: #BDBDBD;
     font-size: 17px;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'IBM Plex Sans', sans-serif;
 }
 
 a {
 	color: #5C6BC0;
 	text-decoration: none;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'IBM Plex Sans', sans-serif;
 }
 
 span { 
@@ -47,9 +63,9 @@ pre {
 }
 
 mark { 
-    background-color: #c7d22c;
+    background-color: #d2ab2c;
     color: #000000;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'IBM Plex Sans', sans-serif;
 }
 
 img { 
@@ -60,25 +76,24 @@ img {
 
 h1, h2, h3 {
     color: #BDBDBD;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'IBM Plex Sans', sans-serif;
+    text-decoration: underline;
 }
 
 ul {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'IBM Plex Sans', sans-serif;
     font-size: 17px;
     color: #BDBDBD;
-    font-family: 'Open Sans', sans-serif;
 }
 
 ol {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'IBM Plex Sans', sans-serif;
     color: #BDBDBD;
     font-size: 17px;
-    font-family: 'Open Sans', sans-serif;
 }
 
 details, summary {
-    font-family: "IBM Plex Sans", sans-serif;
+    font-family: 'IBM Plex Sans', sans-serif;
     font-size: 17px;
 }
 
@@ -92,7 +107,7 @@ blockquote  {
     margin: 1.5em 10px;
     padding: 0.5em 10px;
     margin-left: 1.5em;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'IBM Plex Sans', sans-serif;
     font-size: 17px;
 }
 
@@ -106,7 +121,7 @@ blockquote:before {
 
 blockquote p {
     display: inline;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'IBM Plex Sans', sans-serif;
     font-size: 17px;
 }
 
@@ -115,13 +130,13 @@ table, th, td {
     border-collapse: collapse;
     font-size: 17px;
     color: #BDBDBD;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'IBM Plex Sans', sans-serif;
   }
 
 strong {
     color: #E0E0E0;
     font-size: 17.5px;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'IBM Plex Sans', sans-serif;
 }
 
 details summary {
