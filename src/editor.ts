@@ -26,8 +26,6 @@ import hljs from 'highlight.js';
 
 import katex from 'katex';
 
-import fs from 'fs';
-
 //basic-dark theme (modified)
 //credit: https://github.com/craftzdog/cm6-themes/tree/main/packages/basic-dark
 
