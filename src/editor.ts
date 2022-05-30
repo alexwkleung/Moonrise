@@ -20,7 +20,7 @@ import { languages } from '@codemirror/language-data';
 
 import DOMPurify from 'dompurify';
 
-import { marked, Renderer } from 'marked';
+import { marked } from 'marked';
 
 import hljs from 'highlight.js';
 
