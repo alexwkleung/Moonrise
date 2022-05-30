@@ -26,6 +26,8 @@ import hljs from 'highlight.js';
 
 import katex from 'katex';
 
+import fs from 'fs';
+
 //basic-dark theme (modified)
 //credit: https://github.com/craftzdog/cm6-themes/tree/main/packages/basic-dark
 
@@ -328,7 +330,7 @@ function updatePreview() {
     //set renderer to new object renderer function
     renderer: renderer,
     //utilize highlight.js
-    highlight: function(code: string, lang: string) {
+    highlight: function(code, lang) {
       const language = hljs.getLanguage(lang) ? lang : 'plaintext';
       return hljs.highlight(code, { language }).value;
     },
@@ -351,11 +353,12 @@ function updatePreview() {
   let cssShared = document.createElement('link') 
   cssShared.href = "styles/style.css"; 
   cssShared.rel = "stylesheet"; 
-  cssShared.type = "text/css"; 
+  cssShared.type = "text/css";
 
   //append the shared css of element 'link' to iframe preview
   preview.head.appendChild(cssShared);
 
+  //add katex css to the created element 'link' and append it to the iframe preview header
   let cssKatex = document.createElement('link');
   cssKatex.href = "styles/katex.min.css";
   cssKatex.rel = "stylesheet";
