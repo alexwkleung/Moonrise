@@ -26,6 +26,8 @@ import hljs from 'highlight.js';
 
 import katex from 'katex';
 
+import { saveAs } from 'file-saver';
+
 //basic-dark theme (modified)
 //credit: https://github.com/craftzdog/cm6-themes/tree/main/packages/basic-dark
 
@@ -365,3 +367,21 @@ function updatePreview() {
   preview.head.appendChild(cssKatex);
 }
 setTimeout(updatePreview, 200);
+
+//save function
+function save() {
+  let blob = new Blob([editor.state.doc.toString()], { type: "text/plain;charset=utf-8"})
+  saveAs(blob, "note.md");
+}
+
+const saveButton = document.getElementById('save')!.onclick = () => {
+  save();
+}
+
+//save hotkey
+document.addEventListener('keydown', (event) => {
+  if(event.metaKey && event.key.toLowerCase() === 's') {
+    event.preventDefault();
+    save();
+  }
+})
