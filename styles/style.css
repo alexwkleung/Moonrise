@@ -15,6 +15,10 @@
 
 /* default + preview styles */
 
+.katex-display {
+    font-size: 20px;
+}
+
 body { 
     background-color: #2E3235;
 }
