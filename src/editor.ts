@@ -382,7 +382,7 @@ const saveButton = document.getElementById('save')!.onclick = () => {
 
 //save hotkey
 document.addEventListener('keydown', (event) => {
-  if(event.metaKey && event.key.toLowerCase() === 's') {
+  if(event.metaKey && event.key.toLowerCase() === 's' || event.ctrlKey && event.key.toLowerCase() === 's') {
     event.preventDefault();
     save();
   }
