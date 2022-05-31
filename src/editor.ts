@@ -276,8 +276,8 @@ const editor = new EditorView({
         ]),
         //listen for changes when EditorView gets updated. registers function for iframe preview delay
         EditorView.updateListener.of(function(e) {
-        clearTimeout(delay);
-        delay = setTimeout(updatePreview, 200);
+        clearTimeout(previewDelay);
+        previewDelay = window.setTimeout(updatePreview, 250);
       })
     ]
   }),
@@ -285,7 +285,7 @@ const editor = new EditorView({
 })
 
 //preview delay variable
-let delay: any;
+let previewDelay: number
 
 //iframe preview
 function updatePreview() {
@@ -368,7 +368,7 @@ function updatePreview() {
 
   preview.head.appendChild(cssKatex);
 }
-setTimeout(updatePreview, 200);
+setTimeout(updatePreview, 250);
 
 //save function
 function save() {
