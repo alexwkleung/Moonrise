@@ -303,7 +303,7 @@ function updatePreview() {
       return katex.renderToString(expr, { displayMode: true });
     } else if (expr.match(/^\$[\s\S]*\$$/)) {
       expr = expr.substr(1, expr.length - 2);
-      return katex.renderToString(expr, { displayMode: true });
+      return katex.renderToString(expr, { displayMode: false });
     }
   }
   
@@ -336,7 +336,7 @@ function updatePreview() {
       const language = hljs.getLanguage(lang) ? lang : 'plaintext';
       return hljs.highlight(code, { language }).value;
     },
-    langPrefix: 'hljs language-',
+    langPrefix: '',
     gfm: true,
     breaks: true,
     headerIds: true
@@ -345,9 +345,11 @@ function updatePreview() {
   //sanitize html + markdown parsing
   let purifyParse = DOMPurify.sanitize(marked.parse(editor.state.doc.toString()));
 
-  //write sanitized + parsed output to iframe preview
+  //write sanitized + parsed output + client-side mermaid script to iframe preview
   preview.open();
   preview.write('<!DOCTYPE html>')
+  preview.write('<script src="node_modules/mermaid/dist/mermaid.min.js"></script>')
+  preview.write("<script>mermaid.initialize({startOnLoad:true, securityLevel: 'loose', theme: 'dark'});</script>")
   preview.write(purifyParse);
   preview.close();
 
