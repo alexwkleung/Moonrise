@@ -2,8 +2,8 @@ import { app, BrowserWindow, Menu, MenuItemConstructorOptions } from 'electron';
 
 const createWindow = () => {
     let mainWindow = new BrowserWindow({
-        width: 800,
-        height: 600,
+        width: 1280,
+        height: 770,
         opacity: 0.97
     })
     mainWindow.loadFile('index.html');
