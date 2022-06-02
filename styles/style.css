@@ -68,7 +68,7 @@ img {
 	object-fit: contain;
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4, h5, h6 {
     color: #BDBDBD;
     font-family: 'IBM Plex Sans', sans-serif;
     text-decoration: underline;
@@ -125,6 +125,7 @@ table, th, td {
     font-size: 17px;
     color: #BDBDBD;
     font-family: 'IBM Plex Sans', sans-serif;
+    padding: 6px 13px;
   }
 
 strong {
