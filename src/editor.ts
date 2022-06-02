@@ -343,7 +343,12 @@ function updatePreview() {
   })
 
   //sanitize html + markdown parsing
-  let purifyParse = DOMPurify.sanitize(marked.parse(editor.state.doc.toString()));
+  const purifyConfig = { 
+    ADD_TAGS: ['script'], 
+    FORCE_BODY: true 
+  };
+
+  let purifyParse = DOMPurify.sanitize(marked.parse(editor.state.doc.toString()), purifyConfig);
 
   //write sanitized + parsed output + client-side mermaid script to iframe preview
   preview.open();
@@ -372,7 +377,7 @@ function updatePreview() {
 }
 setTimeout(updatePreview, 250);
 
-//save function
+//save function (manual save)
 function save() {
   let blob = new Blob([editor.state.doc.toString()], { type: "text/plain;charset=utf-8"})
   saveAs(blob, "note.md");
@@ -382,10 +387,87 @@ const saveButton = document.getElementById('save')!.onclick = () => {
   save();
 }
 
-//save hotkey
+//save hotkey (manual save)
 document.addEventListener('keydown', (event) => {
   if(event.metaKey && event.key.toLowerCase() === 's' || event.ctrlKey && event.key.toLowerCase() === 's') {
     event.preventDefault();
     save();
   }
 })
+
+//create file (with auto save)
+let createFile: { getFile: () => any; queryPermission: () => any; createWritable: () => any; };
+document.getElementById('createfile')!.addEventListener('click', async () => {
+    try {
+        createFile = await (<any>window).showSaveFilePicker({
+            suggestedName: 'note.md'
+        });
+        const file = await createFile.getFile();
+        const contents = await file.text();
+    } catch(e) {
+        console.log(e);
+    }
+});
+
+document.getElementById('editor')!.addEventListener('keyup', async(e) => {
+  if(typeof createFile !== "undefined") {
+      if ((await createFile.queryPermission()) === 'granted') {
+          const writable = await createFile.createWritable();
+          await writable.write(editor.state.doc.toString());
+          await writable.close();
+      }
+  }
+});
+
+//open file (no auto save)
+let fileHandle;
+const open = async () => {
+  [fileHandle] = await (<any>window).showOpenFilePicker();
+  const file = await fileHandle.getFile();
+  const contents = await file.text();
+  const newState = EditorState.create({
+    doc: contents,
+    extensions: [ 
+      markdown({
+        base: markdownLanguage,
+        codeLanguages: languages
+      }),
+      basicDarkTheme,
+      lineNumbers(),
+      highlightActiveLineGutter(),
+      highlightSpecialChars(),
+      history(),
+      foldGutter(),
+      drawSelection(),
+      dropCursor(),
+      EditorState.allowMultipleSelections.of(true),
+      indentOnInput(),
+      syntaxHighlighting(basicDarkHighlightStyle, {fallback: true}),
+      bracketMatching(),
+      closeBrackets(),
+      autocompletion(),
+      rectangularSelection(),
+      crosshairCursor(),
+      highlightActiveLine(),
+      highlightSelectionMatches(),
+      keymap.of([
+        ...closeBracketsKeymap,
+        ...defaultKeymap,
+        ...searchKeymap,
+        ...historyKeymap,
+        ...foldKeymap,
+        ...completionKeymap,
+        ...[indentWithTab]
+      ]),
+      EditorView.updateListener.of(function(e) {
+      clearTimeout(previewDelay);
+      previewDelay = window.setTimeout(updatePreview, 250);
+    })
+  ]
+  });
+  editor.setState(newState);
+};
+
+const openbtn = document.getElementById('open')!.onclick = () => {
+  open();
+}
