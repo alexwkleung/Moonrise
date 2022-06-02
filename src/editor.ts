@@ -354,7 +354,9 @@ function updatePreview() {
   preview.open();
   preview.write('<!DOCTYPE html>')
   preview.write('<script src="node_modules/mermaid/dist/mermaid.min.js"></script>')
-  preview.write("<script>mermaid.initialize({startOnLoad:true, securityLevel: 'loose', theme: 'dark'});</script>")
+  //Desmos API (remote source) currently causes memory leaks due to the remote source.
+  preview.write('<script src="https://www.desmos.com/api/v1.4/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>')
+  preview.write("<script>mermaid.initialize({startOnLoad: true, securityLevel: 'loose', theme: 'dark'});</script>")
   preview.write(purifyParse);
   preview.close();
 
@@ -468,6 +470,6 @@ const open = async () => {
   editor.setState(newState);
 };
 
-const openbtn = document.getElementById('open')!.onclick = () => {
-  open();
+const openbtn = document.getElementById('open')!.onclick = async () => {
+  await open();
 }

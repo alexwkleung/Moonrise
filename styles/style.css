@@ -3,6 +3,19 @@
      src: url('./fonts-main/IBMPlexSans-Medium.ttf')
 }
 
+/* codemirror styles */
+
+.cm-scroller {
+    min-height: 2280px;
+}
+
+/* mermaid styles */
+
+.mermaid {
+    background-color: transparent;
+    color: transparent;
+}
+
 /* default + preview styles */
 
 .katex-display {
@@ -11,10 +24,6 @@
 
 body { 
     background-color: #2E3235;
-}
-
-.cm-scroller {
-    min-height: 2280px;
 }
 
 #preview {
