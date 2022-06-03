@@ -29,7 +29,6 @@ import katex from 'katex';
 import { saveAs } from 'file-saver';
 
 import 'katex/dist/contrib/mhchem.js';
-import mermaid from 'mermaid';
 
 //basic-dark theme (modified)
 //credit: https://github.com/craftzdog/cm6-themes/tree/main/packages/basic-dark
