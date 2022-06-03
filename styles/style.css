@@ -24,7 +24,7 @@
 
 body { 
     background-color: #2E3235;
-    margin: 0;
+    /* margin: 0; */
 }
 
 #preview {
@@ -41,6 +41,7 @@ body {
 button { 
     background-color: transparent;
     color: #BDBDBD;
+    height: 30px;
 }
 
 p {
