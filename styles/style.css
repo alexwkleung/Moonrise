@@ -24,16 +24,18 @@
 
 body { 
     background-color: #2E3235;
+    margin: 0;
 }
 
 #preview {
     background-color: transparent;
     border: 0;
-    height: 5000px;
-    width: 50%;
+    height: 0; /* registered upon toggle (5000px) */
+    width: 0; /* registered upon toggle (50%) */
     position: relative;
     overflow: auto;
-    display: block;
+    display: none; /* registered upon toggle (block) */
+    float: right; /* previously used `align=right` in iframe */
 }
 
 button { 

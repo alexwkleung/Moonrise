@@ -344,8 +344,9 @@ function updatePreview() {
 
   //sanitize html + markdown parsing
   const purifyConfig = { 
-    ADD_TAGS: ['script'], 
-    FORCE_BODY: true 
+    ADD_TAGS: ['script', 'style'], 
+    FORCE_BODY: true,
+    ALLOW_UNKNOWN_PROTOCOLS: true
   };
 
   let purifyParse = DOMPurify.sanitize(marked.parse(editor.state.doc.toString()), purifyConfig);
@@ -473,3 +474,15 @@ const open = async () => {
 const openbtn = document.getElementById('open')!.onclick = async () => {
   await open();
 }
+
+//preview toggle
+const previewToggle = document.getElementById('previewtoggle')!.onclick = () => {
+  const previewVar = document.getElementById('preview');
+  if(previewVar!.style.display === "none") {
+    previewVar!.style.display = "block";
+    previewVar!.style.height = "5000px";
+    previewVar!.style.width = "50%";
+  } else {
+     previewVar!.style.display = "none";
+  }
+};
