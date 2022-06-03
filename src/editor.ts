@@ -344,7 +344,7 @@ function updatePreview() {
 
   //sanitize html + markdown parsing
   const purifyConfig = { 
-    ADD_TAGS: ['script', 'style'], 
+    ADD_TAGS: ['script', 'style', 'iframe'], 
     FORCE_BODY: true,
     ALLOW_UNKNOWN_PROTOCOLS: true
   };
@@ -356,7 +356,8 @@ function updatePreview() {
   preview.write('<!DOCTYPE html>')
   preview.write('<script src="node_modules/mermaid/dist/mermaid.min.js"></script>')
   //Desmos API (remote source) currently causes memory leaks due to the remote source.
-  preview.write('<script src="https://www.desmos.com/api/v1.4/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>')
+  //preview.write('<script src="https://www.desmos.com/api/v1.4/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>')
+  preview.write('<script src="node_modules/chart.js/dist/chart.min.js"></script>')
   preview.write("<script>mermaid.initialize({startOnLoad: true, securityLevel: 'loose', theme: 'dark'});</script>")
   preview.write(purifyParse);
   preview.close();
@@ -480,7 +481,7 @@ const previewToggle = document.getElementById('previewtoggle')!.onclick = () => 
   const previewVar = document.getElementById('preview');
   if(previewVar!.style.display === "none") {
     previewVar!.style.display = "block";
-    previewVar!.style.height = "5000px";
+    previewVar!.style.height = "10000px";
     previewVar!.style.width = "50%";
   } else {
      previewVar!.style.display = "none";
