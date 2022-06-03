@@ -29,6 +29,7 @@ import katex from 'katex';
 import { saveAs } from 'file-saver';
 
 import 'katex/dist/contrib/mhchem.js';
+import mermaid from 'mermaid';
 
 //basic-dark theme (modified)
 //credit: https://github.com/craftzdog/cm6-themes/tree/main/packages/basic-dark
@@ -352,14 +353,14 @@ function updatePreview() {
   let purifyParse = DOMPurify.sanitize(marked.parse(editor.state.doc.toString()), purifyConfig);
 
   //write sanitized + parsed output + client-side mermaid script to iframe preview
-  preview.open();
-  preview.write('<!DOCTYPE html>')
+  preview.open()
+  ///preview.write('<!DOCTYPE html>')
+  preview.write(purifyParse);
   preview.write('<script src="node_modules/mermaid/dist/mermaid.min.js"></script>')
   //Desmos API (remote source) currently causes memory leaks due to the remote source.
   //preview.write('<script src="https://www.desmos.com/api/v1.4/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>')
-  preview.write('<script src="node_modules/chart.js/dist/chart.min.js"></script>')
+  //preview.write('<script src="node_modules/chart.js/dist/chart.min.js"></script>')
   preview.write("<script>mermaid.initialize({startOnLoad: true, securityLevel: 'loose', theme: 'dark'});</script>")
-  preview.write(purifyParse);
   preview.close();
 
   //share the style.css to the created element 'link'
@@ -367,7 +368,6 @@ function updatePreview() {
   cssShared.href = "styles/style.css"; 
   cssShared.rel = "stylesheet"; 
   cssShared.type = "text/css";
-
   //append the shared css of element 'link' to iframe preview
   preview.head.appendChild(cssShared);
 
@@ -376,8 +376,12 @@ function updatePreview() {
   cssKatex.href = "styles/katex.min.css";
   cssKatex.rel = "stylesheet";
   cssKatex.type = "text/css";
-
   preview.head.appendChild(cssKatex);
+
+  //chartjs script 
+  const chartJsLoad = document.createElement('script');
+  chartJsLoad.src = "node_modules/chart.js/dist/chart.min.js";
+  preview.body.appendChild(chartJsLoad);
 }
 setTimeout(updatePreview, 250);
 
