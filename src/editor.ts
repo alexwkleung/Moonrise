@@ -356,7 +356,7 @@ function updatePreview() {
   ///preview.write('<!DOCTYPE html>')
   preview.write('<script src="node_modules/mermaid/dist/mermaid.min.js"></script>')
   //Desmos API (remote source) currently causes memory leaks due to the remote source.
-  //preview.write('<script src="https://www.desmos.com/api/v1.7/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>')
+  preview.write('<script src="https://www.desmos.com/api/v1.7/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>')
   //preview.write('<script src="node_modules/chart.js/dist/chart.min.js"></script>')
   preview.write("<script>mermaid.initialize({startOnLoad: true, securityLevel: 'loose', theme: 'dark'});</script>")
   preview.write(purifyParse);
