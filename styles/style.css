@@ -3,6 +3,11 @@
      src: url('./fonts-main/IBMPlexSans-Medium.ttf')
 }
 
+#calculator {
+    float: right;
+    display: none;
+}
+
 /* codemirror styles */
 
 .cm-scroller {

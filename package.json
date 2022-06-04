@@ -1,5 +1,5 @@
 {
-  "name": "cm6-markdown-editor-demo",
+  "name": "moonrise",
   "version": "1.0.0",
   "description": "",
   "main": "build/main.js",
@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/alexwkleung/CM6-Markdown-Editor-Demo.git"
+    "url": "git+https://github.com/alexwkleung/Moonrise.git"
   },
-  "author": "",
+  "author": "Alex Leung",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/alexwkleung/CM6-Markdown-Editor-Demo/issues"
+    "url": "https://github.com/alexwkleung/Moonrise/issues"
   },
-  "homepage": "https://github.com/alexwkleung/CM6-Markdown-Editor-Demo#readme",
+  "homepage": "https://github.com/alexwkleung/Moonrise#readme",
   "dependencies": {
     "@codemirror/autocomplete": "^0.20.2",
     "@codemirror/commands": "^0.20.0",
