@@ -6,9 +6,14 @@
 /* codemirror styles */
 
 .cm-scroller {
-    min-height: 2280px;
+    max-height: 1500px;
+    width: 98%;
+    left: 10px;
 }
 
+#editor { 
+    height: 1500px;
+}
 /* mermaid styles */
 
 .mermaid {
@@ -28,14 +33,24 @@ body {
 }
 
 #preview {
-    background-color: transparent;
+    background-color: #2E3235;
     border: 0;
     height: 0; /* registered upon toggle (5000px) */
     width: 0; /* registered upon toggle (50%) */
     position: relative;
-    overflow: auto;
+    overflow-y: scroll;
+    overflow-x: hidden;
     display: none; /* registered upon toggle (block) */
     float: right; /* previously used `align=right` in iframe */
+}
+
+#sidebar {
+    background-color: #212121;
+    height: 1500px;
+    width: 10%;
+    display: flex;
+    flex-direction: column;
+    float: left;
 }
 
 button { 

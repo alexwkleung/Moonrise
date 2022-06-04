@@ -277,7 +277,7 @@ const editor = new EditorView({
         //listen for changes when EditorView gets updated. registers function for iframe preview delay
         EditorView.updateListener.of(function(e) {
         clearTimeout(previewDelay);
-        previewDelay = window.setTimeout(updatePreview, 250);
+        previewDelay = window.setTimeout(updatePreview, 300);
       })
     ]
   }),
@@ -354,14 +354,14 @@ function updatePreview() {
   //write sanitized + parsed output + client-side mermaid script to iframe preview
   preview.open()
   ///preview.write('<!DOCTYPE html>')
-  preview.write(purifyParse);
   preview.write('<script src="node_modules/mermaid/dist/mermaid.min.js"></script>')
   //Desmos API (remote source) currently causes memory leaks due to the remote source.
-  preview.write('<script src="https://www.desmos.com/api/v1.4/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>')
+  //preview.write('<script src="https://www.desmos.com/api/v1.7/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>')
   //preview.write('<script src="node_modules/chart.js/dist/chart.min.js"></script>')
   preview.write("<script>mermaid.initialize({startOnLoad: true, securityLevel: 'loose', theme: 'dark'});</script>")
+  preview.write(purifyParse);
   preview.close();
-
+  
   //share the style.css to the created element 'link'
   let cssShared = document.createElement('link') 
   cssShared.href = "styles/style.css"; 
@@ -382,7 +382,7 @@ function updatePreview() {
   chartJsLoad.src = "node_modules/chart.js/dist/chart.min.js";
   preview.body.appendChild(chartJsLoad);
 }
-setTimeout(updatePreview, 250);
+setTimeout(updatePreview, 300);
 
 //save function (manual save)
 function save() {
@@ -468,7 +468,7 @@ const open = async () => {
       ]),
       EditorView.updateListener.of(function(e) {
       clearTimeout(previewDelay);
-      previewDelay = window.setTimeout(updatePreview, 250);
+      previewDelay = window.setTimeout(updatePreview, 300);
     })
   ]
   });
@@ -484,8 +484,8 @@ const previewToggle = document.getElementById('previewtoggle')!.onclick = () => 
   const previewVar = document.getElementById('preview');
   if(previewVar!.style.display === "none") {
     previewVar!.style.display = "block";
-    previewVar!.style.height = "10000px";
-    previewVar!.style.width = "50%";
+    previewVar!.style.height = "1500px";
+    previewVar!.style.width = "40%";
   } else {
      previewVar!.style.display = "none";
   }
