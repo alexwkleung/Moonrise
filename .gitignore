@@ -1,3 +1,7 @@
 .DS_STORE
 node_modules
 build
+Moonrise-darwin-x64
+moonrise-x64.dmg
+Moonrise-darwin-arm64
+moonrise-arm64.dmg

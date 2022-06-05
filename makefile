@@ -9,3 +9,13 @@ bundle:
 .PHONY: electron
 electron: 
 	npm run electron
+
+.PHONY: package
+
+package:
+	npm run package
+
+.PHONY: package-arm
+
+package-arm: 
+	npm run package-arm
