@@ -356,18 +356,17 @@ function updatePreview() {
   ///preview.write('<!DOCTYPE html>')
   preview.write('<script src="node_modules/mermaid/dist/mermaid.min.js"></script>')
   //Desmos API (remote source) currently causes memory leaks due to the remote source.
-  preview.write('<script src="https://www.desmos.com/api/v1.7/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>')
+  //preview.write('<script src="https://www.desmos.com/api/v1.7/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>')
   //preview.write('<script src="node_modules/chart.js/dist/chart.min.js"></script>')
   preview.write("<script>mermaid.initialize({startOnLoad: true, securityLevel: 'loose', theme: 'dark'});</script>")
   preview.write(purifyParse);
   preview.close();
   
-  //share the style.css to the created element 'link'
+  //add preview css to iframe
   let cssShared = document.createElement('link') 
-  cssShared.href = "styles/style.css"; 
+  cssShared.href = "styles/preview.css"; 
   cssShared.rel = "stylesheet"; 
   cssShared.type = "text/css";
-  //append the shared css of element 'link' to iframe preview
   preview.head.appendChild(cssShared);
 
   //add katex css to the created element 'link' and append it to the iframe preview header
@@ -427,8 +426,8 @@ document.getElementById('editor')!.addEventListener('keyup', async(e) => {
 });
 
 //open file (no auto save)
-let fileHandle;
 const open = async () => {
+  let fileHandle;
   [fileHandle] = await (<any>window).showOpenFilePicker();
   const file = await fileHandle.getFile();
   const contents = await file.text();
