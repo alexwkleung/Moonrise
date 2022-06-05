@@ -2,9 +2,9 @@ import { nodeResolve } from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 
 export default {
-  input: "./build/editor.js",
+  input: "./build/src/editor.js",
   output: {
-    file: "./build/editor.bundle.js",
+    file: "./build/src/editor.bundle.js",
     format: "cjs"
   },
   plugins: [nodeResolve(), commonjs()]
