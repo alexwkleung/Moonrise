@@ -486,13 +486,3 @@ const previewToggle = document.getElementById('previewtoggle')!.onclick = () => 
      previewVar!.style.display = "none";
   }
 };
-
-//desmos toggle 
-const desmosToggle = document.getElementById('desmostoggle')!.onclick = () => {
-  const desmosVar = document.getElementById('calculator');
-  if(desmosVar!.style.display === "none") {
-    desmosVar!.style.display = "block";
-  } else {
-    desmosVar!.style.display = "none";
-  }
-};
