@@ -22,9 +22,6 @@
 
         <button id="previewtoggle">Preview Toggle</button>
     </div>
-    
-    <!-- desmos graphing calculator -->
-    <div id="calculator" style="width: 600px; height: 400px; display: none; float: right"></div>
 
     <!-- preview -->
     <iframe id="preview"></iframe>
@@ -34,11 +31,5 @@
 
     <!-- editor script -->
     <script type="module" src="build/src/editor.bundle.js"></script>
-
-    <!-- desmos script -->
-    <script>
-    var elt = document.getElementById('calculator');
-    var calculator = Desmos.GraphingCalculator(elt);
-    </script>
 </body>
 </html>
