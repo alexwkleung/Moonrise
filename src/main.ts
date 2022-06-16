@@ -4,7 +4,7 @@ const createWindow = () => {
     let mainWindow = new BrowserWindow({
         width: 1440,
         height: 770,
-        opacity: 0.98
+        opacity: 1.0
     })
     mainWindow.loadFile('index.html');
 }
