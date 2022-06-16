@@ -1,8 +1,8 @@
-import { EditorState } from '@codemirror/state';
+import { EditorState } from '@codemirror/state'
 
-import { EditorView } from '@codemirror/view';
+import { EditorView } from '@codemirror/view'
 
-import { markdown, markdownLanguage } from '@codemirror/lang-markdown';
+import { markdown, markdownLanguage } from '@codemirror/lang-markdown'
 
 import { keymap, highlightSpecialChars, drawSelection, highlightActiveLine, dropCursor, rectangularSelection, crosshairCursor,lineNumbers, highlightActiveLineGutter } from '@codemirror/view'
 
@@ -14,21 +14,21 @@ import { searchKeymap, highlightSelectionMatches } from '@codemirror/search'
 
 import { autocompletion, completionKeymap, closeBrackets, closeBracketsKeymap } from '@codemirror/autocomplete'
 
-import { tags } from '@lezer/highlight';
+import { tags } from '@lezer/highlight'
 
-import { languages } from '@codemirror/language-data';
+import { languages } from '@codemirror/language-data'
 
-import DOMPurify from 'dompurify';
+import DOMPurify from 'dompurify'
 
-import { marked } from 'marked';
+import { marked } from 'marked'
 
-import hljs from 'highlight.js';
+import hljs from 'highlight.js'
 
-import katex from 'katex';
+import katex from 'katex'
 
-import { saveAs } from 'file-saver';
+import { saveAs } from 'file-saver'
 
-import 'katex/dist/contrib/mhchem.js';
+import 'katex/dist/contrib/mhchem.js'
 
 //basic-dark theme (modified)
 //credit: https://github.com/craftzdog/cm6-themes/tree/main/packages/basic-dark
