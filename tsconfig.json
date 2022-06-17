@@ -51,5 +51,6 @@
     //"allowUnreachableCode": false,                     /* Disable error reporting for unreachable code. */
     // "skipDefaultLibCheck": true,                      /* Skip type checking .d.ts files that are included with TypeScript. */
     "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
-  }
+  },
+  "exclude": ["node_modules", "build/Moonrise-darwin-x64", "build/Moonrise-darwin-arm64"]
 }

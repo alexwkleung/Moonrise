@@ -277,7 +277,7 @@ const editor = new EditorView({
         //listen for changes when EditorView gets updated. registers function for iframe preview delay
         EditorView.updateListener.of(function(e) {
         clearTimeout(previewDelay);
-        previewDelay = window.setTimeout(updatePreview, 300);
+        previewDelay = window.setTimeout(updatePreview, 200);
       })
     ]
   }),
@@ -287,10 +287,10 @@ const editor = new EditorView({
 //preview delay variable
 let previewDelay: number
 
-//iframe preview
+//preview
 function updatePreview() {
-  const previewFrame = document.getElementById('preview') as HTMLIFrameElement;
-  let preview =  previewFrame.contentDocument ||  previewFrame.contentWindow!.document;
+  //const previewFrame = document.getElementById('preview') as HTMLIFrameElement;
+  //let preview =  previewFrame.contentDocument ||  previewFrame.contentWindow!.document;
 
   //katex rendering 
   //credit: https://www.jingxuanqu.com/demo/marked/marked-with-katex.html
@@ -298,10 +298,10 @@ function updatePreview() {
   const renderer = new marked.Renderer();
 
   function mathsExpression(expr: string) {
-    if (expr.match(/^\$\$[\s\S]*\$\$$/)) {
+    if(expr.match(/^\$\$[\s\S]*\$\$$/)) {
       expr = expr.substr(2, expr.length - 4);
       return katex.renderToString(expr, { displayMode: true });
-    } else if (expr.match(/^\$[\s\S]*\$$/)) {
+    } else if(expr.match(/^\$[\s\S]*\$$/)) {
       expr = expr.substr(1, expr.length - 2);
       return katex.renderToString(expr, { displayMode: false });
     }
@@ -310,9 +310,9 @@ function updatePreview() {
   const unchanged = new marked.Renderer()
   
   renderer.code = function(code: string, lang: string | undefined, escaped: boolean) {
-    if (!lang) {
+    if(!lang) {
       const math = mathsExpression(code);
-      if (math) {
+      if(math) {
         return math;
       }
     }
@@ -321,7 +321,7 @@ function updatePreview() {
   
   renderer.codespan = function(text: string) {
     const math = mathsExpression(text);
-    if (math) {
+    if(math) {
       return math;
     }
     return unchanged.codespan(text);
@@ -344,13 +344,14 @@ function updatePreview() {
 
   //sanitize html + markdown parsing
   const purifyConfig = { 
-    ADD_TAGS: ['script', 'style', 'iframe'], 
-    FORCE_BODY: true,
+    ADD_TAGS: [/*'script',*/ 'style' /*, 'iframe'*/], 
+    //FORCE_BODY: true,
     ALLOW_UNKNOWN_PROTOCOLS: true
   };
 
   let purifyParse = DOMPurify.sanitize(marked.parse(editor.state.doc.toString()), purifyConfig);
 
+  /*
   //write sanitized + parsed output + client-side mermaid script to iframe preview
   preview.open()
   ///preview.write('<!DOCTYPE html>')
@@ -358,14 +359,16 @@ function updatePreview() {
   preview.write("<script>mermaid.initialize({startOnLoad: true, securityLevel: 'loose', theme: 'dark'});</script>")
   preview.write(purifyParse);
   preview.close();
+  */
   
+  /*
   //add preview css to iframe
   let cssShared = document.createElement('link') 
   cssShared.href = "styles/preview.css"; 
   cssShared.rel = "stylesheet"; 
   cssShared.type = "text/css";
   preview.head.appendChild(cssShared);
-
+  
   //add katex css to the created element 'link' and append it to the iframe preview header
   let cssKatex = document.createElement('link');
   cssKatex.href = "styles/katex.min.css";
@@ -377,8 +380,12 @@ function updatePreview() {
   const chartJsLoad = document.createElement('script');
   chartJsLoad.src = "node_modules/chart.js/dist/chart.min.js";
   preview.body.appendChild(chartJsLoad);
+  */
+
+  const prevDiv = document.getElementById('preview');
+  prevDiv!.innerHTML = purifyParse;
 }
-setTimeout(updatePreview, 300);
+setTimeout(updatePreview, 200);
 
 //save function (manual save)
 function save() {
@@ -414,7 +421,7 @@ document.getElementById('createfile')!.addEventListener('click', async () => {
 
 document.getElementById('editor')!.addEventListener('keyup', async(e) => {
   if(typeof createFile !== "undefined") {
-      if ((await createFile.queryPermission()) === 'granted') {
+      if((await createFile.queryPermission()) === 'granted') {
           const writable = await createFile.createWritable();
           await writable.write(editor.state.doc.toString());
           await writable.close();
@@ -464,7 +471,7 @@ const open = async () => {
       ]),
       EditorView.updateListener.of(function(e) {
       clearTimeout(previewDelay);
-      previewDelay = window.setTimeout(updatePreview, 300);
+      previewDelay = window.setTimeout(updatePreview, 200);
     })
   ]
   });

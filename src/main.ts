@@ -75,7 +75,7 @@ Menu.setApplicationMenu(menu)
 app.whenReady().then(() => {
     createWindow();
 
-    app.commandLine.appendSwitch("enable-experimental-web-platform-features");
+    //app.commandLine.appendSwitch("enable-experimental-web-platform-features");
 
     app.on('activate', () => {
         if(BrowserWindow.getAllWindows().length === 0) {
