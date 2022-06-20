@@ -4,7 +4,7 @@ import { EditorView } from '@codemirror/view'
 
 import { markdown, markdownLanguage } from '@codemirror/lang-markdown'
 
-import { keymap, highlightSpecialChars, drawSelection, highlightActiveLine, dropCursor, rectangularSelection, crosshairCursor,lineNumbers, highlightActiveLineGutter } from '@codemirror/view'
+import { keymap, highlightSpecialChars, drawSelection, highlightActiveLine, dropCursor, rectangularSelection, crosshairCursor, lineNumbers, highlightActiveLineGutter } from '@codemirror/view'
 
 import { syntaxHighlighting, HighlightStyle, indentOnInput, bracketMatching, foldGutter, foldKeymap } from '@codemirror/language'
 
