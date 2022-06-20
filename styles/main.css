@@ -13,6 +13,7 @@
 
 #editor { 
     height: 1500px;
+    margin-left: 145px;
 }
 
 /* default styles */
@@ -34,6 +35,7 @@ body {
     display: flex;
     flex-direction: column;
     float: left;
+    position: fixed;
 }
 
 #preview {
@@ -42,7 +44,7 @@ body {
     height: 0; /* registered upon toggle (5000px) */
     width: 0; /* registered upon toggle (50%) */
     position: relative;
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
     overflow-x: hidden;
     display: none; /* registered upon toggle (block) */
     float: right; /* previously used `align=right` in iframe */
