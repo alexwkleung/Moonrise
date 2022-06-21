@@ -349,7 +349,7 @@ function updatePreview() {
     ALLOW_UNKNOWN_PROTOCOLS: true
   };
 
-  let purifyParse = DOMPurify.sanitize(marked.parse(editor.state.doc.toString()), purifyConfig);
+  const purifyParse = DOMPurify.sanitize(marked.parse(editor.state.doc.toString()), purifyConfig);
 
   /*
   //write sanitized + parsed output + client-side mermaid script to iframe preview
