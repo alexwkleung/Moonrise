@@ -375,11 +375,6 @@ function updatePreview() {
   cssKatex.rel = "stylesheet";
   cssKatex.type = "text/css";
   preview.head.appendChild(cssKatex);
-
-  //chartjs script 
-  const chartJsLoad = document.createElement('script');
-  chartJsLoad.src = "node_modules/chart.js/dist/chart.min.js";
-  preview.body.appendChild(chartJsLoad);
   */
 
   const prevDiv = document.getElementById('preview');
