@@ -378,7 +378,7 @@ function updatePreview() {
   */
 
   const prevDiv = document.getElementById('preview');
-  prevDiv!.innerHTML = purifyParse;
+  prevDiv!.innerHTML = `${purifyParse}`;
 }
 setTimeout(updatePreview, 200);
 
