@@ -336,7 +336,7 @@ function updatePreview() {
       const language = hljs.getLanguage(lang) ? lang : 'plaintext';
       return hljs.highlight(code, { language }).value;
     },
-    langPrefix: '',
+    langPrefix: '', //language prefix must be empty so highlightjs doesn't take precedence when using other prefixes
     gfm: true,
     breaks: true,
     headerIds: true
