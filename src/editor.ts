@@ -497,23 +497,6 @@ const previewToggle = document.getElementById('previewtoggle')!.onclick = () => 
   }
 }
 
-/*
-//editor toggle 
-const editorToggle = document.getElementById('editortoggle')!.onclick = () => {
-  const editorVar = document.getElementById('editor');
-  const previewVar = document.getElementById('preview');
-
-  if(editorVar!.style.display === "none") {
-    editorVar!.style.display = "block";
-    previewVar!.style.width = "50%";
-  } else {
-    editorVar!.style.display = "none";
-    previewVar!.style.width = "100%";
-    previewVar!.style.left = "170px";
-  }
-}
-*/
-
 //full preview toggle
 const fullPreview = document.getElementById('fullpreview')!.onclick = () => {
   const previewVar = document.getElementById('preview');
