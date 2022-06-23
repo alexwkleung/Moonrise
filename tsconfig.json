@@ -4,8 +4,8 @@
     // "lib": [],                                        /* Specify a set of bundled library declaration files that describe the target runtime environment. */
     // "moduleDetection": "auto",                        /* Control what method is used to detect module-format JS files. */
     "module": "commonjs",                               
-    "moduleResolution": "node",                       /* Specify how TypeScript looks up a file from a given module specifier. */
-    "types": ["node"],                                      /* Specify type package names to be included without being referenced in a source file. */
+    "moduleResolution": "node",                          /* Specify how TypeScript looks up a file from a given module specifier. */
+    "types": ["node", "@types/wicg-file-system-access"], /* Specify type package names to be included without being referenced in a source file. */
     // "allowUmdGlobalAccess": true,                     /* Allow accessing UMD globals from modules. */
     // "resolveJsonModule": true,                        /* Enable importing .json files. */
     // "noResolve": true,                                /* Disallow 'import's, 'require's or '<reference>'s from expanding the number of files TypeScript should add to a project. */
