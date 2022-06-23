@@ -46,10 +46,9 @@ body {
     background-color: #2E3235;
     border: 0;
     position: relative;
-    /* overflow-y: scroll; */
     overflow-x: hidden;
-    display: none; /* registered upon toggle (block) */
-    float: right; /* previously used `align=right` in iframe */
+    display: none; 
+    float: right;
 }
 
 button { 
