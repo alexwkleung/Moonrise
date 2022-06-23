@@ -480,11 +480,56 @@ const openbtn = document.getElementById('open')!.onclick = async () => {
 //preview toggle
 const previewToggle = document.getElementById('previewtoggle')!.onclick = () => {
   const previewVar = document.getElementById('preview');
+  const editorVar = document.getElementById('editor');
+
   if(previewVar!.style.display === "none") {
     previewVar!.style.display = "block";
-    previewVar!.style.height = "1500px";
-    previewVar!.style.width = "40%";
+    previewVar!.style.height = "auto";
+    previewVar!.style.width = "50%";
+    previewVar!.style.left = "";
+    editorVar!.style.width = "";
   } else {
-     previewVar!.style.display = "none";
+    previewVar!.style.display = "none";
+    previewVar!.style.height = "auto";
+    previewVar!.style.width = "50%";
+    editorVar!.style.display = "block";
+    editorVar!.style.width = "";
   }
-};
+}
+
+/*
+//editor toggle 
+const editorToggle = document.getElementById('editortoggle')!.onclick = () => {
+  const editorVar = document.getElementById('editor');
+  const previewVar = document.getElementById('preview');
+
+  if(editorVar!.style.display === "none") {
+    editorVar!.style.display = "block";
+    previewVar!.style.width = "50%";
+  } else {
+    editorVar!.style.display = "none";
+    previewVar!.style.width = "100%";
+    previewVar!.style.left = "170px";
+  }
+}
+*/
+
+//full preview toggle
+const fullPreview = document.getElementById('fullpreview')!.onclick = () => {
+  const previewVar = document.getElementById('preview');
+  const editorVar = document.getElementById('editor');
+
+  if(editorVar!.style.display === "none") {
+    editorVar!.style.display = "block";
+    editorVar!.style.width = "";
+    previewVar!.style.display = "none";
+    previewVar!.style.height = "auto";
+    previewVar!.style.left = "";
+  } else {
+    editorVar!.style.display = "none";
+    previewVar!.style.display = "block";
+    previewVar!.style.height = "auto";
+    previewVar!.style.width = "100%";
+    previewVar!.style.left = "170px";
+  }
+}

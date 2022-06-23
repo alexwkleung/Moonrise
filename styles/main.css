@@ -8,14 +8,14 @@
 /* codemirror styles */
 
 .cm-scroller {
-    max-height: 1500px;
-    width: 98%;
+    max-height: auto;
+    width: 99%;
     left: 10px;
 }
 
 #editor { 
-    height: 1500px;
-    margin-left: 145px;
+    height: auto;
+    margin-left: 155px;
 }
 
 /* default styles */
@@ -23,6 +23,7 @@
 body { 
     background-color: #2E3235;
     /* margin: 0; */
+    overflow-x: hidden;
 }
 
 ::-webkit-scrollbar {
@@ -32,8 +33,9 @@ body {
 
 #sidebar {
     background-color: #212121;
-    height: 1500px;
-    width: 10%;
+    min-height: 1500px;
+    max-height: auto;
+    width: auto;
     display: flex;
     flex-direction: column;
     float: left;
@@ -43,8 +45,6 @@ body {
 #preview {
     background-color: #2E3235;
     border: 0;
-    height: 0; /* registered upon toggle (5000px) */
-    width: 0; /* registered upon toggle (50%) */
     position: relative;
     /* overflow-y: scroll; */
     overflow-x: hidden;
@@ -55,5 +55,5 @@ body {
 button { 
     background-color: transparent;
     color: #BDBDBD;
-    height: 35px;
+    height: 40px;
 }
