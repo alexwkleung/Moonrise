@@ -487,7 +487,7 @@ const previewToggle = document.getElementById('previewtoggle')!.onclick = () => 
     previewVar!.style.height = "auto";
     previewVar!.style.width = "50%";
     previewVar!.style.left = "";
-    editorVar!.style.width = "";
+    editorVar!.style.width = "50%";
   } else {
     previewVar!.style.display = "none";
     previewVar!.style.height = "auto";
