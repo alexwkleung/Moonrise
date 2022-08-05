@@ -12,6 +12,13 @@
 
 # Basics 
 
+<!-- you cannot see this! -->
+
+<!-- 
+these words are 
+commented out!
+-->
+
 All headings are underlined.
 
 > This is a blockquote
