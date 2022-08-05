@@ -10,7 +10,7 @@ import { HighlightStyle } from '@codemirror/language'
 //theme colours - base
 const base00 = '#2E3235',
   base01 = '#DDDDDD',
-  base02 = '#5e676e',
+  base02 = '#535c63',
   base03 = '#b0b0b0',
   //base04 = '#d0d0d0',
   base05 = '#e0e0e0',
@@ -47,7 +47,7 @@ export const basicDarkTheme = EditorView.theme(
       caretColor: cursor
     },
 
-    '.cm-cursor, .cm-dropCursor': { borderLeftColor: cursor, borderLeft: "0px solid", borderRight: ".5em solid", opacity: "0.7" },
+    '.cm-cursor, .cm-dropCursor': { borderLeftColor: cursor, borderLeft: "0px solid", borderRight: "0.6em solid", opacity: "0.7" },
     '&.cm-focused .cm-selectionBackground, .cm-selectionBackground, .cm-content ::selection':
       { backgroundColor: selection },
 

@@ -40,11 +40,11 @@ const editor = new EditorView({
           codeLanguages: languages
         }),
         basicDarkTheme,
-        lineNumbers(),
-        highlightActiveLineGutter(),
+        //lineNumbers(),
+        //highlightActiveLineGutter(),
         highlightSpecialChars(),
         history(),
-        foldGutter(),
+        //foldGutter(),
         drawSelection(),
         dropCursor(),
         EditorState.allowMultipleSelections.of(true),
@@ -60,9 +60,9 @@ const editor = new EditorView({
         keymap.of([
           ...closeBracketsKeymap,
           ...defaultKeymap,
-          ...searchKeymap,
+          //...searchKeymap,
           ...historyKeymap,
-          ...foldKeymap,
+          //...foldKeymap,
           ...completionKeymap,
           ...[indentWithTab]
         ]),
@@ -230,11 +230,11 @@ const open = async () => {
         codeLanguages: languages
       }),
       basicDarkTheme,
-      lineNumbers(),
-      highlightActiveLineGutter(),
+      //lineNumbers(),
+      //highlightActiveLineGutter(),
       highlightSpecialChars(),
       history(),
-      foldGutter(),
+      //foldGutter(),
       drawSelection(),
       dropCursor(),
       EditorState.allowMultipleSelections.of(true),
@@ -250,9 +250,9 @@ const open = async () => {
       keymap.of([
         ...closeBracketsKeymap,
         ...defaultKeymap,
-        ...searchKeymap,
+        //...searchKeymap,
         ...historyKeymap,
-        ...foldKeymap,
+        //...foldKeymap,
         ...completionKeymap,
         ...[indentWithTab]
       ]),
