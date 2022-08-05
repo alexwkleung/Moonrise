@@ -4,7 +4,8 @@ const createWindow = () => {
     let mainWindow = new BrowserWindow({
         width: 1440,
         height: 770,
-        opacity: 1.0
+        opacity: 0.94,
+        titleBarStyle: 'hiddenInset'
     })
     mainWindow.loadFile('index.html');
 }

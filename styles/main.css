@@ -5,17 +5,30 @@
     src: url('./fonts-main/IBMPlexSans-Medium.ttf')
 }
 
+/* drag region */
+
+#dragregion {
+    color: grey;
+    border-style: hidden;
+    width: 98%;
+    height: 16px;
+    -webkit-app-region: drag;
+}
+
 /* codemirror styles */
 
 .cm-scroller {
     max-height: auto;
     width: 98%;
     left: 10px;
+    margin-top: 18px;
 }
 
 #editor { 
     height: auto;
     margin-left: 155px;
+    margin-top: 18px;
+    background-color: transparent;
 }
 
 /* default styles */
@@ -40,6 +53,8 @@ body {
     flex-direction: column;
     float: left;
     position: fixed;
+    margin-top: 18px;
+    -webkit-app-region: drag;
 }
 
 #preview {

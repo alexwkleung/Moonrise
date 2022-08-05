@@ -107,7 +107,7 @@ $\ce{ [AgCl2]- }$
 ```markdown
 ![](file:///users/alex/Desktop/Moonrise/Images/iris.png)
 ```
-![](file:///users/alex/Desktop/Moonrise/Images/iris.png)
+![](<file:///users/alex/Desktop/Git Repos/Moonrise/demo-files/Images/iris.png>)
 
 2) You can also load images from a remote source.
 
