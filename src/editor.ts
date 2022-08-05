@@ -147,8 +147,9 @@ function updatePreview() {
   //write sanitized + parsed output + client-side mermaid script to iframe preview
   preview.open()
   ///preview.write('<!DOCTYPE html>')
-  preview.write('<script src="node_modules/mermaid/dist/mermaid.min.js"></script>')
-  preview.write("<script>mermaid.initialize({startOnLoad: true, securityLevel: 'loose', theme: 'dark'});</script>")
+  //reinstall mermaid if using script
+  //preview.write('<script src="node_modules/mermaid/dist/mermaid.min.js"></script>')
+  //preview.write("<script>mermaid.initialize({startOnLoad: true, securityLevel: 'loose', theme: 'dark'});</script>")
   preview.write(purifyParse);
   preview.close();
   */
