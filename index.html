@@ -10,9 +10,7 @@
 <body>
     <!-- styles -->
     <link rel="stylesheet" href="./styles/main.css">
-
     <link rel="stylesheet" href="./styles/katex.min.css">
-    
     <link rel="stylesheet" href="./styles/preview.css">
 
     <!-- drag region -->
@@ -29,17 +27,17 @@
             <button id="previewtoggle">Preview Toggle (Split)</button>
 
             <button id="fullpreview">Preview Toggle (Full)</button>
-        </div>
-
-        <!-- preview -->
-        <!--<iframe id="preview"></iframe>-->
-        
-        <div id="preview"></div>
-
-        <!-- editor -->
-        <div id="editor"></div>
+        </div> <!-- sidebar -->
     </div> <!-- drag region -->
 
+    <!-- preview -->
+    <!--<iframe id="preview"></iframe>-->
+    <div id="container">
+        <div id="preview"></div>
+        
+    <!-- editor -->
+    <div id="editor"></div>
+    </div> <!-- container -->
     <!-- editor script -->
     <script type="module" src="build/editor.bundle.js"></script>
 </body>

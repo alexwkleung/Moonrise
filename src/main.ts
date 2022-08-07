@@ -1,6 +1,6 @@
 import { app, BrowserWindow, Menu, MenuItemConstructorOptions } from 'electron';
 
-const createWindow = () => {
+const createWindow = (): void => {
     let mainWindow = new BrowserWindow({
         width: 1440,
         height: 770,
@@ -10,7 +10,7 @@ const createWindow = () => {
     mainWindow.loadFile('index.html');
 }
 
-const mac = process.platform === 'darwin'
+const mac: boolean = process.platform === 'darwin';
 
 const menu = Menu.buildFromTemplate(
   [
@@ -73,19 +73,19 @@ const menu = Menu.buildFromTemplate(
 //set menu from template
 Menu.setApplicationMenu(menu)
 
-app.whenReady().then(() => {
+app.whenReady().then((): void => {
     createWindow();
 
     app.commandLine.appendSwitch("enable-experimental-web-platform-features");
 
-    app.on('activate', () => {
+    app.on('activate', (): void => {
         if(BrowserWindow.getAllWindows().length === 0) {
             createWindow();
         }
     })
 })
 
-app.on('window-all-closed', () => {
+app.on('window-all-closed', (): void => {
     if(process.platform !== 'darwin') {
         app.quit();
     }

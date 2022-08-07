@@ -1,33 +1,18 @@
 import { EditorState } from '@codemirror/state'
-
 import { EditorView } from '@codemirror/view'
-
 import { markdown, markdownLanguage } from '@codemirror/lang-markdown'
-
 import { keymap, highlightSpecialChars, drawSelection, highlightActiveLine, dropCursor, rectangularSelection, crosshairCursor, lineNumbers, highlightActiveLineGutter } from '@codemirror/view'
-
 import { syntaxHighlighting, indentOnInput, bracketMatching, foldGutter, foldKeymap } from '@codemirror/language'
-
 import { defaultKeymap, history, historyKeymap, indentWithTab } from '@codemirror/commands'
-
 import { searchKeymap, highlightSelectionMatches } from '@codemirror/search'
-
 import { autocompletion, completionKeymap, closeBrackets, closeBracketsKeymap } from '@codemirror/autocomplete'
-
 import { languages } from '@codemirror/language-data'
-
 import DOMPurify from 'dompurify'
-
 import { marked } from 'marked'
-
 import hljs from 'highlight.js'
-
 import katex from 'katex'
-
 import { saveAs } from 'file-saver'
-
 import 'katex/dist/contrib/mhchem.js'
-
 import { basicDarkTheme, basicDarkHighlightStyle } from './theme'
 
 //editor
@@ -55,7 +40,7 @@ const editor = new EditorView({
         autocompletion(),
         rectangularSelection(),
         crosshairCursor(),
-        highlightActiveLine(),
+        //highlightActiveLine(),
         highlightSelectionMatches(),
         keymap.of([
           ...closeBracketsKeymap,
@@ -77,7 +62,7 @@ const editor = new EditorView({
 })
 
 //preview delay variable
-let previewDelay: number
+let previewDelay: number;
 
 //preview
 function updatePreview() {
@@ -141,7 +126,7 @@ function updatePreview() {
     ALLOW_UNKNOWN_PROTOCOLS: true
   };
 
-  const purifyParse = DOMPurify.sanitize(marked.parse(editor.state.doc.toString()), purifyConfig);
+  const purifyParse: string = DOMPurify.sanitize(marked.parse(editor.state.doc.toString()), purifyConfig);
 
   /*
   //write sanitized + parsed output + client-side mermaid script to iframe preview
@@ -246,7 +231,7 @@ const open = async () => {
       autocompletion(),
       rectangularSelection(),
       crosshairCursor(),
-      highlightActiveLine(),
+      //highlightActiveLine(),
       highlightSelectionMatches(),
       keymap.of([
         ...closeBracketsKeymap,
@@ -271,13 +256,13 @@ const openbtn = document.getElementById('open')!.onclick = async () => {
 }
 
 //preview toggle
-const previewToggle = document.getElementById('previewtoggle')!.onclick = () => {
+const previewToggle = document.getElementById('previewtoggle')!.onclick = (): void => {
   const previewVar = document.getElementById('preview');
   const editorVar = document.getElementById('editor');
 
   if(previewVar!.style.display === "none") {
     previewVar!.style.display = "block";
-    previewVar!.style.height = "auto";
+    previewVar!.style.height = "770px";
     previewVar!.style.width = "50%";
     previewVar!.style.left = "";
     editorVar!.style.width = "50%";
@@ -291,7 +276,7 @@ const previewToggle = document.getElementById('previewtoggle')!.onclick = () => 
 }
 
 //full preview toggle
-const fullPreview = document.getElementById('fullpreview')!.onclick = () => {
+const fullPreview = document.getElementById('fullpreview')!.onclick = (): void => {
   const previewVar = document.getElementById('preview');
   const editorVar = document.getElementById('editor');
 
