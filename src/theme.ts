@@ -1,7 +1,5 @@
 import { EditorView } from '@codemirror/view'
-
 import { tags } from '@lezer/highlight'
-
 import { HighlightStyle } from '@codemirror/language'
 
 //basic-dark theme (modified)
