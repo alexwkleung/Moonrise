@@ -25,7 +25,7 @@
     "@codemirror/autocomplete": "^0.20.2",
     "@codemirror/commands": "^0.20.0",
     "@codemirror/lang-markdown": "^0.20.1",
-    "@codemirror/language": "^0.20.2",
+    "@codemirror/language": "^6.2.1",
     "@codemirror/language-data": "^0.20.0",
     "@codemirror/search": "^0.20.1",
     "@codemirror/state": "^0.20.0",
