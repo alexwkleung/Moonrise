@@ -28,7 +28,7 @@
     "@codemirror/language": "^0.20.2",
     "@codemirror/language-data": "^0.20.0",
     "@codemirror/search": "^0.20.1",
-    "@codemirror/state": "^0.20.0",
+    "@codemirror/state": "^6.1.1",
     "@codemirror/view": "^0.20.6",
     "@lezer/highlight": "^0.16.0",
     "@rollup/plugin-commonjs": "^22.0.0",
