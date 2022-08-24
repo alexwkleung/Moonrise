@@ -34,7 +34,7 @@ const editor = new EditorView({
         dropCursor(),
         EditorState.allowMultipleSelections.of(true),
         indentOnInput(),
-        syntaxHighlighting(basicDarkHighlightStyle, {fallback: true}),
+        syntaxHighlighting(basicDarkHighlightStyle, { fallback: true }),
         bracketMatching(),
         closeBrackets(),
         autocompletion(),
@@ -52,13 +52,13 @@ const editor = new EditorView({
           ...[indentWithTab]
         ]),
         //listen for changes when EditorView gets updated. registers function for iframe preview delay
-        EditorView.updateListener.of(function(e) {
+        EditorView.updateListener.of((e) => {
         clearTimeout(previewDelay);
         previewDelay = window.setTimeout(updatePreview, 200);
       })
     ]
   }),
-  parent: document.getElementById('editor')!
+  parent: document.getElementById('editor') as HTMLElement
 })
 
 //preview delay variable
@@ -155,7 +155,7 @@ function updatePreview() {
   preview.head.appendChild(cssKatex);
   */
 
-  const prevDiv = document.getElementById('preview');
+  const prevDiv = document.getElementById('preview') as HTMLElement;
   prevDiv!.innerHTML = `${purifyParse}`;
 }
 setTimeout(updatePreview, 200);
@@ -166,7 +166,7 @@ function save() {
   saveAs(blob, "note.md");
 }
 
-const saveButton = document.getElementById('save')!.onclick = () => {
+const saveButton = (document.getElementById('save') as HTMLElement).onclick = () => {
   save();
 }
 
@@ -180,7 +180,7 @@ document.addEventListener('keydown', (event) => {
 
 //create file (with auto save)
 let createFile: { getFile: () => any; queryPermission: () => any; createWritable: () => any; };
-document.getElementById('createfile')!.addEventListener('click', async () => {
+(document.getElementById('createfile') as HTMLElement).addEventListener('click', async () => {
     try {
         createFile = await (window).showSaveFilePicker({
             suggestedName: 'note.md'
@@ -192,7 +192,7 @@ document.getElementById('createfile')!.addEventListener('click', async () => {
     }
 });
 
-document.getElementById('editor')!.addEventListener('keyup', async(e) => {
+(document.getElementById('editor') as HTMLElement).addEventListener('keyup', async(e) => {
   if(typeof createFile !== "undefined") {
       if((await createFile.queryPermission()) === 'granted') {
           const writable = await createFile.createWritable();
@@ -251,12 +251,12 @@ const open = async () => {
   editor.setState(newState);
 };
 
-const openbtn = document.getElementById('open')!.onclick = async () => {
+const openbtn = (document.getElementById('open') as HTMLElement).onclick = async () => {
   await open();
 }
 
 //preview toggle
-const previewToggle = document.getElementById('previewtoggle')!.onclick = (): void => {
+const previewToggle = (document.getElementById('previewtoggle') as HTMLElement).onclick = (): void => {
   const previewVar = document.getElementById('preview');
   const editorVar = document.getElementById('editor');
 
@@ -276,7 +276,7 @@ const previewToggle = document.getElementById('previewtoggle')!.onclick = (): vo
 }
 
 //full preview toggle
-const fullPreview = document.getElementById('fullpreview')!.onclick = (): void => {
+const fullPreview = (document.getElementById('fullpreview') as HTMLElement).onclick = (): void => {
   const previewVar = document.getElementById('preview');
   const editorVar = document.getElementById('editor');
 

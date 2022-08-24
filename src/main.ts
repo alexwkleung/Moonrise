@@ -11,7 +11,7 @@ const createWindow = (): void => {
     mainWindow.loadFile('index.html');
 }
 
-const mac: boolean = process.platform === 'darwin';
+const mac: boolean = (process.platform === 'darwin');
 
 const menu = Menu.buildFromTemplate(
   [
