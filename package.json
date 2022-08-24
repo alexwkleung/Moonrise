@@ -5,7 +5,7 @@
   "description": "",
   "main": "build/main.js",
   "scripts": {
-    "build": "npx tsc --build --clean && npx tsc && rollup -c",
+    "build": "npx tsc --build --clean && npx tsc && rollup -c && uglifyjs build/editor.bundle.js -o build/editor.bundle.min.js",
     "bundle": "rollup -c",
     "electron": "electron .",
     "package": "npx electron-packager . --platform=darwin --arch=x64 --icon=twemoji-14.0-crescent-moon.icns --overwrite && electron-installer-dmg ./Moonrise-darwin-x64/Moonrise.app moonrise-x64",
@@ -51,6 +51,7 @@
     "@types/dompurify": "^2.3.3",
     "@types/file-saver": "^2.0.5",
     "@types/marked": "^4.0.3",
-    "electron": "^19.0.1"
+    "electron": "^19.0.1",
+    "uglify-js": "^3.17.0"
   }
 }

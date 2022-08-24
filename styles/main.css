@@ -5,6 +5,14 @@
     src: url('./fonts-main/IBMPlexSans-Medium.ttf')
 }
 
+.ͼ1.cm-editor.cm-focused {
+    outline: none;
+}
+
+.cm-editor.ͼ1.ͼ2.ͼ3.ͼ4.ͼ5 {
+    outline: none;
+}
+
 /* drag region */
 
 #dragregion {

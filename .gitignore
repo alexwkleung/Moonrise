@@ -1,6 +1,9 @@
 .DS_STORE
 node_modules
-build
+build/editor.bundle.js
+build/editor.js
+build/main.js
+build/theme.js
 Moonrise-darwin-x64
 moonrise-x64.dmg
 Moonrise-darwin-arm64
