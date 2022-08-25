@@ -155,7 +155,7 @@ function updatePreview() {
   preview.head.appendChild(cssKatex);
   */
 
-  const prevDiv = document.getElementById('preview') as HTMLElement;
+  const prevDiv: HTMLElement = document.getElementById('preview') as HTMLElement;
   prevDiv!.innerHTML = `${purifyParse}`;
 }
 setTimeout(updatePreview, 200);
@@ -188,7 +188,7 @@ let createFile: { getFile: () => any; queryPermission: () => any; createWritable
         const file = await createFile.getFile();
         const contents = await file.text();
     } catch(e) {
-        console.log(e);
+        console.error(e);
     }
 });
 
@@ -257,40 +257,40 @@ const openbtn = (document.getElementById('open') as HTMLElement).onclick = async
 
 //preview toggle
 const previewToggle = (document.getElementById('previewtoggle') as HTMLElement).onclick = (): void => {
-  const previewVar = document.getElementById('preview');
-  const editorVar = document.getElementById('editor');
+  const previewElemToggle: HTMLElement = document.getElementById('preview') as HTMLElement;
+  const editorElemToggle: HTMLElement = document.getElementById('editor') as HTMLElement;
 
-  if(previewVar!.style.display === "none") {
-    previewVar!.style.display = "block";
-    previewVar!.style.height = "770px";
-    previewVar!.style.width = "50%";
-    previewVar!.style.left = "";
-    editorVar!.style.width = "50%";
+  if(previewElemToggle.style.display === "none") {
+    previewElemToggle.style.display = "block";
+    previewElemToggle.style.height = "770px";
+    previewElemToggle.style.width = "50%";
+    previewElemToggle.style.left = "";
+    editorElemToggle.style.width = "50%";
   } else {
-    previewVar!.style.display = "none";
-    previewVar!.style.height = "auto";
-    previewVar!.style.width = "";
-    editorVar!.style.display = "block";
-    editorVar!.style.width = "";
+    previewElemToggle.style.display = "none";
+    previewElemToggle.style.height = "auto";
+    previewElemToggle.style.width = "";
+    editorElemToggle.style.display = "block";
+    editorElemToggle.style.width = "";
   }
 }
 
 //full preview toggle
 const fullPreview = (document.getElementById('fullpreview') as HTMLElement).onclick = (): void => {
-  const previewVar = document.getElementById('preview');
-  const editorVar = document.getElementById('editor');
+  const previewElemFull: HTMLElement = document.getElementById('preview') as HTMLElement;
+  const editorElemFull: HTMLElement = document.getElementById('editor') as HTMLElement;
 
-  if(editorVar!.style.display === "none") {
-    editorVar!.style.display = "block";
-    editorVar!.style.width = "";
-    previewVar!.style.display = "none";
-    previewVar!.style.height = "auto";
-    previewVar!.style.left = "";
+  if(editorElemFull.style.display === "none") {
+    editorElemFull.style.display = "block";
+    editorElemFull.style.width = "";
+    previewElemFull.style.display = "none";
+    previewElemFull.style.height = "auto";
+    previewElemFull.style.left = "";
   } else {
-    editorVar!.style.display = "none";
-    previewVar!.style.display = "block";
-    previewVar!.style.height = "auto";
-    previewVar!.style.width = "100%";
-    previewVar!.style.left = "170px";
+    editorElemFull.style.display = "none";
+    previewElemFull.style.display = "block";
+    previewElemFull.style.height = "auto";
+    previewElemFull.style.width = "100%";
+    previewElemFull.style.left = "170px";
   }
 }
