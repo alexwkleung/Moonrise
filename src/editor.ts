@@ -262,7 +262,7 @@ const previewToggle = (document.getElementById('previewtoggle') as HTMLElement).
 
   if(previewElemToggle.style.display === "none") {
     previewElemToggle.style.display = "block";
-    previewElemToggle.style.height = "770px";
+    previewElemToggle.style.height = "100vh";
     previewElemToggle.style.width = "50%";
     previewElemToggle.style.left = "";
     editorElemToggle.style.width = "50%";
