@@ -7,7 +7,7 @@ Code name: Moonrise.
 
 **Note:** This demo should not be used in production. It should only be used to gravitate into your next project idea.
 
-# Install
+# Installation
 
 Go to releases and find the latest version available. 
 
